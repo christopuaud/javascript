@@ -23,7 +23,7 @@ jobs:
   Rejeted:
     runs-on: windows-latest
     if: ${{failure()}}
-    needs: [test]
+    needs: [build]
     
 
     steps:
@@ -35,9 +35,5 @@ jobs:
       run: |
         git config --global user.email "ngdorian0@gmail.com"
         git config --global user.name "koalanoir"
-        git checkout -b rejeted-${{github.run_number}}
-        git add *
         git commit -m "build no ${{github.run_number}} rejeted."
-        git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
-        git checkout -b develop
         git revert HEAD
