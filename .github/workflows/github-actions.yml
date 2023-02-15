@@ -42,7 +42,7 @@ jobs:
         git config --global user.name "koalanoir"
         git add *
         git commit -m "build  ${{github.run_number}} success."
-        git checkout master
+        git checkout -b master
         git merge https://github.com/christopuaud/javascript master
   Rejeted:
     runs-on: ubuntu-latest
