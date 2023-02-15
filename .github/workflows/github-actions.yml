@@ -43,7 +43,7 @@ jobs:
         git checkout -b master
         git add *
         git commit -m "build  ${{github.run_number}} success."
-        git push https://github.com/christopuaud/javascrip master
+        git push https://github.com/christopuaud/javascript master
   Rejeted:
     runs-on: ubuntu-latest
     if: ${{failure()}}
@@ -62,6 +62,6 @@ jobs:
         git checkout -b rejeted-${{github.run_number}}
         git add *
         git commit -m "build no ${{github.run_number}} rejeted."
-        git push https://github.com/christopuaud/javascrip rejeted-${{github.run_number}}
+        git push https://github.com/christopuaud/javascript rejeted-${{github.run_number}}
         git checkout -b develop
         git revert HEAD
