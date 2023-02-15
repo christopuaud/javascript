@@ -21,7 +21,7 @@ jobs:
       - run: jasmine-node .
 
   Rejeted:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     if: ${{failure()}}
     needs: [test]
     
