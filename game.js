@@ -52,7 +52,7 @@ exports.Game = function() {
   };
 
   this.isPlayable = function(howManyPlayers){
-    return howManyPlayers >= 2;
+    return howManyPlayers >= 2; 
   };
 
   this.add = function(playerName){
