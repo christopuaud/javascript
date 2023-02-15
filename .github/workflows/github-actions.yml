@@ -25,25 +25,7 @@ jobs:
       - run: npm install jasmine-node -g
       - run: jasmine-node .
 
-  success:
-    runs-on: ubuntu-latest
-    if: ${{success()}}
-    needs: [build]
-    
 
-    steps:
-    - name: checkout
-      uses: actions/checkout@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: push 
-      run: |
-        git config --global user.email "puaud.christopher@outlook.fr"
-        git config --global user.name "christopuaud"
-        git add *
-        git commit -m "build  ${{github.run_number}} success."
-        git checkout -b master
-        git merge https://github.com/christopuaud/javascript master
   Rejeted:
     runs-on: ubuntu-latest
     if: ${{failure()}}
@@ -59,9 +41,5 @@ jobs:
       run: |
         git config --global user.email "puaud.christopher@outlook.fr"
         git config --global user.name "christopuaud"
-        git checkout -b rejeted-${{github.run_number}}
-        git add *
         git commit -m "build no ${{github.run_number}} rejeted."
-        git push https://github.com/christopuaud/javascript rejeted-${{github.run_number}}
-        git checkout -b develop
         git revert HEAD

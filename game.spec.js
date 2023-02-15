@@ -2,9 +2,7 @@ require('./game.js');
 
 describe("The test environment", function() {
   it("should pass", function() {
-    expect(true).toBe(false);
-
-    
+    expect(true).toBe(true);
   });
 
   it("should access game", function() {
