@@ -2,6 +2,7 @@ exports = typeof window !== "undefined" && window !== null ? window : global;
 
 exports.Game = function() {
   var players          = new Array();
+  var playersAnswerCombo = new Array();
   var places           = new Array(6);
   var purses           = new Array(6);
   var inPenaltyBox     = new Array(6);
