@@ -55,17 +55,22 @@ exports.Game = function() {
     return howManyPlayers >= 2 && howManyPlayers <7;
   };
 
-  this.add = function(playerName){
-    players.push(playerName);
-    places[this.howManyPlayers()] = 0;
-    purses[this.howManyPlayers()] = 0;
-    inPenaltyBox[this.howManyPlayers()] = false;
+ this.add = function(playerName){
+  if (this.howManyPlayers() < 6)
+  {
+   players.push(playerName);
+            places[this.howManyPlayers()] = 0;
+            purses[this.howManyPlayers()] = 0;
+            inPenaltyBox[this.howManyPlayers()] = false;
 
-    console.log(playerName + " was added");
-    console.log("They are player number " + players.length);
+            console.log(playerName + " was added");
+            console.log("They are player number " + players.length);
 
-    return true;
-  };
+            return true;
+  }
+  else {
+  return false;
+  }
 
   this.howManyPlayers = function(){
     return players.length;
